@@ -26,4 +26,6 @@
     <string name="save_note">Save Note</string>
     <string name="add_new_note">Add New Note</string>
     <string name="edit_your_note">Edit your note</string>
+    <string name="note_title">note title</string>
+    <string name="this_can_be_note_content_that_can_be_long">this can be note content that can be long</string>
 </resources>
