@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.Query
 import kotlin.jvm.java
 
@@ -42,8 +43,16 @@ class MainActivity : AppCompatActivity() {
 
     fun showMenu() {
         val popupMenu = android.widget.PopupMenu(this@MainActivity, menuBtn)
-
+        popupMenu.menu.add("Logout")
         popupMenu.show()
+        popupMenu.setOnMenuItemClickListener {
+            if (it.title == "Logout") {
+                FirebaseAuth.getInstance().signOut()
+                startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                finish()
+            }
+            true
+        }
     }
 
     fun setupRecyclerView() {
